@@ -2,29 +2,24 @@
 
 ## Objective
 
-This project showcases the use of Linux CLI (command line interface) to perform various tasks specific to the work of a cyber security analyst. Each scenario will be described and executed separately.
-
-The Detection Lab project aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus was to ingest and analyze logs within a Security Information and Event Management (SIEM) system, generating test telemetry to mimic real-world attack scenarios. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
+This project demonstrates how to use the Linux command line interface (CLI) for tasks relevant to cybersecurity analysts. Each scenario will be covered individually, starting with basic commands and progressing to more advanced tools. The goal is to showcase the capabilities of the Linux CLI and explore its applications in cybersecurity practices such as managing authorization, analyzing network packets, and detecting intrusions.
 
 ### Skills Learned
 
-- Advanced understanding of SIEM concepts and practical application.
-- Proficiency in analyzing and interpreting network logs.
-- Ability to generate and recognize attack signatures and patterns.
-- Enhanced knowledge of network protocols and security vulnerabilities.
-- Development of critical thinking and problem-solving skills in cybersecurity.
+- install and uninstall applications in a Linux Bash shell
 
 ### Tools Used
 
-- Linux CLI (command line interface)
+- Linux command line interface (CLI)
 - Suricata
 - tcpdump
 
-## Steps
-drag & drop screenshots here or use imgur and reference them using imgsrc
+## Scenario 01
 
-Every screenshot should have some text explaining what the screenshot is about.
+In this scenario, you have to install, uninstall, and reinstall Suricata and tcpdump on your Linux Bash shell. You also need to confirm that you’ve installed them correctly. Suricata and tcpdump are network security applications that can be used to capture and analyze network traffic. 
+The operating system used as an example is a Debian-based distribution of Linux and that works with the APT package manager. This application allows you to quickly and reliably manage the applications in a Linux environment.
 
-Example below.
+### Step 1
 
-*Ref 1: Network Diagram*
+First, you’ll check that the APT application is installed so that you can use it to manage applications. The simplest way to do this is to run the apt command in the Bash shell and check the response.
+The Bash shell is the command-line interpreter currently open on the left side of the screen. You’ll use the Bash shell by typing commands after the prompt. The prompt is represented by a dollar sign ($) followed by the input cursor.
