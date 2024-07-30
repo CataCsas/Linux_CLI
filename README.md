@@ -1,4 +1,4 @@
-# Linux CLI
+# Linux command line interface
 
 ## Objective
 
