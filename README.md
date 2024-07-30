@@ -26,7 +26,7 @@ The Bash shell is the command-line interpreter visible on the left side of the s
 Confirm that the APT package manager is installed in your Linux environment. To do this, type ${\textsf{\color{green}apt}}$ after the command-line prompt and press **ENTER**.\
 When installed, ${\textsf{\color{green}apt}}$ displays basic usage information when you run it. This includes the version information and a description of the tool:
 
-`apt 1.8.2.3 (amd64)`\
+`apt 2.9.5 (amd64)`\
 `Usage: apt [options] command`
 
 `apt is a commandline package manager and provides commands for`\
@@ -34,6 +34,20 @@ When installed, ${\textsf{\color{green}apt}}$ displays basic usage information w
 `It provides the same functionality as the specialized APT tools,`\
 `like apt-get and apt-cache, but enables options more suitable for`\
 `interactive use by default.`
+
+`Most used commands:`\
+`  list - list packages based on package names`\
+`  search - search in package descriptions`\
+`  show - show package details`\
+`  install - install packages`\
+`  reinstall - reinstall packages`\
+`  remove - remove packages`\
+`  autoremove - automatically remove all unused packages`\
+`  update - update list of available packages`\
+`  upgrade - upgrade the system by installing/upgrading packages`\
+`  full-upgrade - upgrade the system by removing/installing/upgrading packages`\
+`  edit-sources - edit the source information file`\
+`  satisfy - satisfy dependency strings`
 
 APT is already installed by default in the Linux Bash shell because this is a Debian-based system. APT is also the recommended package manager for Debian. For another Linux distribution, a different package manager, such as YUM, may be available instead.
 
