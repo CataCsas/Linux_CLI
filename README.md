@@ -22,7 +22,7 @@ The operating system used as an example is a Debian-based distribution of Linux 
 
 ### Step 1 - Ensure that APT is installed
 
-First, verify that the APT application is installed to manage applications. The simplest method is to execute the ${\textsf{\color{green}apt}}$ command in the Bash shell and check the response.
+Verify that the APT package manager is installed by typing the ${\textsf{\color{green}apt}}$ command in the Bash shell and check the response.
 
 The Bash shell is the command-line interpreter visible on the left side of the screen and it will be used for entering commands. Commands are typed after the prompt, which is represented by a dollar sign `$` followed by the input cursor.
 
