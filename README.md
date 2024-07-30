@@ -66,7 +66,7 @@ Type ${\textsf{\color{green}sudo apt install suricata}}$ after the command-line 
 > The ${\textsf{\color{green}apt install}}$ and ${\textsf{\color{green}apt remove}}$ commands must be prefixed with the ${\textsf{\color{green}sudo}}$ command as elevated privileges are required to install and uninstall software in Linux.\
 > The Suricata application can take a few minutes to install.
 
-When installing an application with APT, the output displays details of all the software to be installed. This may include additional applications that depend on the new software. These additional applications are called the dependencies of the software to be installed.
+When installing an application with APT, the output will display details of all the software to be installed, including any additional applications that depend on the new software. These additional applications are called the dependencies of the software to be installed.
 
 `Installing:`\
 `  suricata`
@@ -89,7 +89,7 @@ When installing an application with APT, the output displays details of all the 
 `Continue? [Y/n]`\
 `...`
 
-When prompted to continue, press the **ENTER** key to respond with the default response. (In this case, the default response is **Yes**)
+When prompted to continue, press the **ENTER** key to accept the default response, which is **Yes** in this case.
 
 To verify that Suricata is installed, run the application by typing ${\textsf{\color{green}suricata}}$ after the command-line prompt and press **ENTER**.
 
