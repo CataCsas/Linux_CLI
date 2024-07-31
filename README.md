@@ -8,6 +8,8 @@ This project demonstrates how to use the Linux command line interface (CLI) for 
 
 - install and uninstall applications using the APT package manager
 - list installed applications
+- generate output using echo and expr
+- clear the Bash shell
 
 ### Tools Used
 
@@ -146,15 +148,54 @@ This produces a long list of applications because Linux has a lot of software in
 
 ## Scenario 02
 
-This scenario involves installing, uninstalling, and reinstalling Suricata and tcpdump in a Linux Bash shell. Verification is required to ensure that the installation has been performed correctly. Suricata and tcpdump are network security applications that can be used to capture and analyze network traffic.
+In this activity, the ${\textsf{\color{green}echo}}$ command is used to examine how input is received and how output is returned in the shell. Next, the ${\textsf{\color{green}expr}}$ command will be used to further explore input and output while performing some basic calculations in the shell.
 
-The operating system used as an example is a Debian-based distribution of Linux and that works with the APT package manager, which allows to quickly and reliably manage the applications in a Linux environment.
-
-In this lab activity, you’ll use the echo command to examine how input is received and how output is returned in the shell. Next, you’ll use the expr command to further explore input and output while performing some basic calculations in the shell.
-This activity will build foundations in understanding how you communicate with the Linux operating system through the shell. As a security analyst, you'll need to input commands into the shell and recognize when the shell returns either output or an error message.
-Next, you'll explore the scenario!
-Scenario
-As a security professional, it’s important to understand the concept of communicating with your computer via the shell.
-In this scenario, you have to input a specified string of text that you want the shell to return as output. You'll also need to input a few mathematical calculations so the OS (operating system) can return the result.
+Understanding how to communicate with the Linux operating system through the shell and recognizing when the shell returns either output or an error message is essential.
 
 ### Step 1 - Generate output with the echo command
+
+The ${\textsf{\color{green}echo}}$ command in the Bash shell outputs a specified string of text. Type ${\textsf{\color{green}echo hello}}$ into the shell and press **ENTER**. The output string should be:
+
+`hello`
+
+In this instance, the command ${\textsf{\color{green}echo hello}}$ is the **input** to the shell, and ${\textsf{\color{green}hello}}$ is the **output** from the shell.
+
+Rerun the command, including quotation marks around the string data. Type ${\textsf{\color{green}echo "hello"}}$ into the shell and press **ENTER**. The output string should be again:
+
+`hello`
+
+> [!NOTE]
+> The output remains the same. Quotation marks are **optional** in this case, but are used to group a series of characters together. This can be useful when passing a string containing certain characters that might otherwise be misinterpreted by the command.
+
+### Step 2 - Generate output with the expr command
+
+The ${\textsf{\color{green}expr}}$ command can be used to perform basic mathematical calculations and generate additional output in the Bash shell.
+
+For example, if the system it's showing that there are 32 alerts, but only 8 require action, calculate the number of false positives by subtracting the number of alerts that require action from the total number of alerts. Type ${\textsf{\color{green}expr 32 - 8}}$ into the shell and press **ENTER**. The result should be:
+
+`24`
+
+> [!NOTE]
+> The ${\textsf{\color{green}expr}}$ command requires that all terms and operators in an expression are separated by spaces. For example, use spaces around operators as in ${\textsf{\color{green}expr 32 - 8}}$, and **not** as in ${\textsf{\color{green}expr 32-8}}$.
+
+To calculate the total number of login attempts expected over the course of a year, given that an average of 3500 login attempts have been made each month, multiply 3500 by 12. Type ${\textsf{\color{green}expr 3500 * 12}}$ into the shell and press **ENTER**. The result should be:
+
+`42000`
+
+The mathematical operators available for **adding**, **subtracting**, **dividing**, and **multiplying** with the ${\textsf{\color{green}expr}}$ command are ${\textsf{\color{green}+}}$, ${\textsf{\color{green}-}}$, ${\textsf{\color{green}/}}$, and ${\textsf{\color{green}*}}$.
+
+> [!NOTE]
+> The ${\textsf{\color{green}expr}}$ command performs integer mathematical calculations only, so decimal points cannot be used and fractional results are not returned. All results are rounded down to the nearest integer.
+
+### Step 3 - Clear the Bash shell
+
+The ${\textsf{\color{green}clear}}$ command is used to remove all existing output from the Bash shell, allowing the cursor to return to the top of the shell window. When working in a shell environment, the screen can fill with previous input and output data. This can make it difficult to process what is going on. Clearing the screen allows to create a clutter-free text environment and to focus on what is important at that point in time.
+
+Type ${\textsf{\color{green}clear}}$ into the shell and press **ENTER**.
+
+> [!NOTE]
+> All previous commands and output will be cleared, and the user prompt and cursor will return to the upper left corner of the shell window.
+
+## Scenario 03
+
+![image](https://github.com/user-attachments/assets/d4efbf29-1791-4783-bc49-5341309bf0ca)
