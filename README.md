@@ -10,6 +10,8 @@ This project demonstrates how to use the Linux command line interface (CLI) for 
 - list installed applications
 - generate output using echo and expr
 - clear the Bash shell
+- navigate through directories and list their contents
+- display the contents of files
 
 ### Tools Used
 
@@ -198,4 +200,88 @@ Type ${\textsf{\color{green}clear}}$ into the shell and press **ENTER**.
 
 ## Scenario 03
 
+This activity involves using commands to navigate a Linux file structure, locate files, and read the contents of specific files located in the */home/analyst* directory.
+
+The **Filesystem Hierarchy Standard (FHS)** organizes data within Linux. The FHS defines the structure of directories, directory contents, and other storage in the operating system. The following diagram illustrates the hierarchy of relationships under the FHS:
+
 ![image](https://github.com/user-attachments/assets/d4efbf29-1791-4783-bc49-5341309bf0ca)
+
+Under the FHS, a file’s location is described by a file path. A **file path** indicates the location of a file or directory, with different levels of the hierarchy separated by a forward slash (/).
+
+The **root directory** is the highest-level directory in Linux, represented by a forward slash (/). All subdirectories branch off the root directory, and these subdirectories can branch out to as many levels as necessary.
+
+Directly below the root directory are standard FHS directories. In the diagram, *home*, *bin*, and *etc* are examples of standard FHS directories. Here are descriptions of what these directories contain:
+
+- */home*: Each user in the system has their own home directory
+- */bin*: This directory stands for “binary” and contains binary files and other executables. Executables are files containing commands that the system uses to run programs and perform other functions
+- */etc*: This directory stores the system’s configuration files
+- */tmp*: This directory stores temporary files, which are often modified by users. The */tmp* directory is commonly targeted by attackers because it allows modification by any user on the system
+- */mnt*: This directory stands for “mount” and is used for mounting media, such as USB drives and hard drives
+
+> [!TIP]
+> Use the ${\textsf{\color{green}man hier}}$ command to learn more about the FHS and its standard directories.
+
+Under */home*, there are subdirectories for specific users. In the diagram, these users are *analyst* and *analyst2*. Each user has their own personal subdirectories, such as *projects*, *logs*, or *reports*.
+
+> [!NOTE]
+> When the path leads to a subdirectory within the user’s home directory, the user’s home directory can be represented by a tilde. For example, */home/analyst/logs* can be written as *~/logs*.
+
+Navigation to specific subdirectories can be accomplished using either absolute or relative file paths. The **absolute file path** is the full file path, which starts from the *root* directory, such as */home/analyst/projects*. The **relative file path** is the file path that starts from the user's current directory.
+
+> [!NOTE]
+> Relative file paths can use a dot (.) to represent the current directory, or two dots (..) to represent the parent of the current directory. For example, *../projects* is a relative file path.
+
+Note: Relative file paths can use a dot (.) to represent the current directory, or two dots (..) to represent the parent directory. For example, ../projects is a relative file path.
+
+The following Linux commands are useful for navigating the file system: ${\textsf{\color{green}pwd}}$, ${\textsf{\color{green}ls}}$, and ${\textsf{\color{green}cd}}$.
+
+### Step 1 - Get the current directory information
+
+The ${\textsf{\color{green}pwd}}$ command prints the working directory to the screen, showing the absolute path. For example, if used in the *home* directory of the username *analyst*, entering ${\textsf{\color{green}pwd}}$ will return:
+
+`/home/analyst`
+
+> [!TIP]
+> To find the username, use the ${\textsf{\color{green}whoami}}$ command. It returns the username of the current user. For example, if the username is *analyst*, entering ${\textsf{\color{green}whoami}}$ returns:
+
+`analyst`
+
+The ${\textsf{\color{green}ls}}$ command displays the names of files and directories in the current working directory. For example, ${\textsf{\color{green}ls}}$ might return directories like *logs* and files in the directory such as *updates.txt*.
+
+> [!TIP]
+> To list the contents of a directory other than the current one, add an argument after ${\textsf{\color{green}ls}}$ with the absolute or relative file path to the desired directory. For example, in the */home/analyst* directory, enter ${\textsf{\color{green}ls /home/analyst/projects}}$ or just ${\textsf{\color{green}ls projects}}$ to list the contents of the *projects* subdirectory.
+
+### Step 2 - Change directory
+
+The ${\textsf{\color{green}cd}}$ command navigates between directories. To move to a subdirectory of the current directory, add an argument after ${\textsf{\color{green}cd}}$ with the subdirectory name. For example, to navigate to the *projects* subdirectory of the */home/analyst* directory enter ${\textsf{\color{green}cd projects}}$.
+
+To navigate to any specific directory, enter the absolute file path. For example, from */home/analyst/projects*, entering ${\textsf{\color{green}cd /home/analyst/logs}}$ changes the current directory to */home/analyst/logs*.
+
+> [!TIP]
+> Use the relative file path ${\textsf{\color{green}cd ..}}$ to go up one level in the directory structure. For example, if the current directory is */home/analyst/projects*, entering ${\textsf{\color{green}cd ..}}$ changes the working directory to */home/analyst*.
+
+### Step 3 - Read the contents of a file
+
+The following Linux commands are useful for reading file content: ${\textsf{\color{green}cat}}$, ${\textsf{\color{green}head}}$, ${\textsf{\color{green}tail}}$, and ${\textsf{\color{green}less}}$.
+
+The ${\textsf{\color{green}cat}}$ command displays the entire content of a file. For example, entering ${\textsf{\color{green}cat updates.txt}}$ shows all the contents of the *updates.txt* file.
+
+The ${\textsf{\color{green}head}}$ command displays the beginning of a file, by default the first 10 lines. This command is useful for viewing the basic contents of a file without reading the entire file. Entering ${\textsf{\color{green}head updates.txt}}$ displays only the first 10 lines of the *updates.txt* file.
+
+> [!TIP]
+> To change the number of lines displayed by ${\textsf{\color{green}head}}$, include the *-n* argument. For example, to display the first five lines of the *updates.txt* file, enter ${\textsf{\color{green}head -n 5 updates.txt}}$.
+ 
+The ${\textsf{\color{green}tail}}$ command displays the end of a file, by default the last 10 lines. This command is useful for viewing the most recent additions to a file. Entering ${\textsf{\color{green}tail updates.txt}}$ shows only the last 10 lines of the *updates.txt* file.
+
+> [!TIP]
+> Use ${\textsf{\color{green}tail}}$ to monitor the most recent information in a log file.
+
+The ${\textsf{\color{green}less}}$ command displays the content of a file one page at a time. For example, entering ${\textsf{\color{green}less updates.txt}}$ changes the terminal window to display the contents of *updates.txt* one page at a time, allowing movement through the file. Once it is accessed with the ${\textsf{\color{green}less}}$ command, use the following keyboard controls to navigate:
+- Space bar: Move forward one page
+- b: Move back one page
+- Down arrow: Move forward one line
+- Up arrow: Move back one line
+- q: Quit and return to the previous terminal window
+
+## Scenario 04
+
