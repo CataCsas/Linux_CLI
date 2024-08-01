@@ -25,7 +25,7 @@ This scenario involves installing, uninstalling, and reinstalling Suricata and t
 
 The operating system used as an example is a Debian-based distribution of Linux and that works with the APT package manager, which allows to quickly and reliably manage the applications in a Linux environment.
 
-### Step 1 - Ensure that APT is installed
+### Task 1 - Ensure that APT is installed
 
 Verify that the APT package manager is installed by typing the ${\textsf{\color{green}apt}}$ command in the Bash shell and check the response.
 
@@ -61,7 +61,7 @@ When installed, ${\textsf{\color{green}apt}}$ displays basic usage information w
 
 APT is already installed by default in the Linux Bash shell because this is a Debian-based system. APT is also the recommended package manager for Debian. For another Linux distribution, a different package manager, such as YUM, may be available instead.
 
-### Step 2 - Install and uninstall the Suricata application
+### Task 2 - Install and uninstall the Suricata application
 
 The APT package manager will be used to install the Suricata application, which is a network analysis tool used for intrusion detection, and verify that it installed correctly. Type ${\textsf{\color{green}sudo apt install suricata}}$ after the command-line prompt and press **ENTER**.
 
@@ -128,11 +128,11 @@ This message indicates that Suricata can't be found anymore.
 
 Reinstall the Suricata application by typing ${\textsf{\color{green}sudo apt install suricata}}$ after the command-line prompt and press **ENTER**.
 
-### Step 3 - Install the tcpdump application
+### Task 3 - Install the tcpdump application
 
 tcpdump application is a command-line tool that can be used to capture network traffic in a Linux Bash shell. Type ${\textsf{\color{green}sudo apt install tcpdump}}$ after the command-line prompt and press **ENTER**.
 
-### Step 4 - List the installed applications
+### Task 4 - List the installed applications
 
 Confirm that the required applications are installed. Often it's important to check that the correct versions are installed as well.
 
@@ -154,7 +154,7 @@ In this activity, the ${\textsf{\color{green}echo}}$ command is used to examine 
 
 Understanding how to communicate with the Linux operating system through the shell and recognizing when the shell returns either output or an error message is essential.
 
-### Step 1 - Generate output with the echo command
+### Task 1 - Generate output with the echo command
 
 The ${\textsf{\color{green}echo}}$ command in the Bash shell outputs a specified string of text. Type ${\textsf{\color{green}echo hello}}$ into the shell and press **ENTER**. The output string should be:
 
@@ -169,7 +169,7 @@ Rerun the command, including quotation marks around the string data. Type ${\tex
 > [!NOTE]
 > The output remains the same. Quotation marks are **optional** in this case, but are used to group a series of characters together. This can be useful when passing a string containing certain characters that might otherwise be misinterpreted by the command.
 
-### Step 2 - Generate output with the expr command
+### Task 2 - Generate output with the expr command
 
 The ${\textsf{\color{green}expr}}$ command can be used to perform basic mathematical calculations and generate additional output in the Bash shell.
 
@@ -189,7 +189,7 @@ The mathematical operators available for **adding**, **subtracting**, **dividing
 > [!NOTE]
 > The ${\textsf{\color{green}expr}}$ command performs integer mathematical calculations only, so decimal points cannot be used and fractional results are not returned. All results are rounded down to the nearest integer.
 
-### Step 3 - Clear the Bash shell
+### Task 3 - Clear the Bash shell
 
 The ${\textsf{\color{green}clear}}$ command is used to remove all existing output from the Bash shell, allowing the cursor to return to the top of the shell window. When working in a shell environment, the screen can fill with previous input and output data. This can make it difficult to process what is going on. Clearing the screen allows to create a clutter-free text environment and to focus on what is important at that point in time.
 
@@ -235,7 +235,7 @@ Note: Relative file paths can use a dot (.) to represent the current directory, 
 
 The following Linux commands are useful for navigating the file system: ${\textsf{\color{green}pwd}}$, ${\textsf{\color{green}ls}}$, and ${\textsf{\color{green}cd}}$.
 
-### Step 1 - Get the current directory information
+### Task 1 - Get the current directory information
 
 The ${\textsf{\color{green}pwd}}$ command prints the working directory to the screen, showing the absolute path. For example, if used in the *home* directory of the username *analyst*, entering ${\textsf{\color{green}pwd}}$ will return:
 
@@ -251,7 +251,7 @@ The ${\textsf{\color{green}ls}}$ command displays the names of files and directo
 > [!TIP]
 > To list the contents of a directory other than the current one, add an argument after ${\textsf{\color{green}ls}}$ with the absolute or relative file path to the desired directory. For example, in the */home/analyst* directory, enter ${\textsf{\color{green}ls /home/analyst/projects}}$ or just ${\textsf{\color{green}ls projects}}$ to list the contents of the *projects* subdirectory.
 
-### Step 2 - Change directory
+### Task 2 - Change directory
 
 The ${\textsf{\color{green}cd}}$ command navigates between directories. To move to a subdirectory of the current directory, add an argument after ${\textsf{\color{green}cd}}$ with the subdirectory name. For example, to navigate to the *projects* subdirectory of the */home/analyst* directory enter ${\textsf{\color{green}cd projects}}$.
 
@@ -260,7 +260,7 @@ To navigate to any specific directory, enter the absolute file path. For example
 > [!TIP]
 > Use the relative file path ${\textsf{\color{green}cd ..}}$ to go up one level in the directory structure. For example, if the current directory is */home/analyst/projects*, entering ${\textsf{\color{green}cd ..}}$ changes the working directory to */home/analyst*.
 
-### Step 3 - Read the contents of a file
+### Task 3 - Read the contents of a file
 
 The following Linux commands are useful for reading file content: ${\textsf{\color{green}cat}}$, ${\textsf{\color{green}head}}$, ${\textsf{\color{green}tail}}$, and ${\textsf{\color{green}less}}$.
 
@@ -285,3 +285,68 @@ The ${\textsf{\color{green}less}}$ command displays the content of a file one pa
 
 ## Scenario 04
 
+In this activity, the ${\textsf{\color{green}grep}}$ command and piping are used to search for files and directories, and to return specific information from files.
+
+Filtering allows searching based on specific criteria, such as file extension or a string of text. The ability to search for specific strings can help in obtaining information contained in server log and user data files more efficiently.
+
+### Task 1 - Search for error messages in a log file
+
+Navigate to the */home/analyst/logs* directory and report on the error messages in the *server_logs.txt* file. The command to change the directory is:
+
+`cd logs`
+
+Use ${\textsf{\color{green}grep}}$ to filter the *server_logs.txt* file, and return all lines containing the text string *error*. The command to complete this step is:
+
+`grep error server_logs.txt`
+
+> [!NOTE]
+> If a command is entered incorrectly and it fails to return to the command-line prompt, pressing **CTRL+C** stops the process and forces the shell to return to the command-line prompt.
+
+The ${\textsf{\color{green}grep}}$ command commonly takes two arguments: the first is a specific string to search for, and the second is the name of the file to search through. For example, entering ${\textsf{\color{green}grep OS updates.txt}}$ returns all lines containing *OS* in the *updates.txt* file. In this example, *OS* is the specific string to search for, and *updates.txt* is the specific file to search through.
+
+### Task 2 - Find files containing specific strings
+
+Navigate to the */home/analyst/reports/users* directory and use the correct Linux commands and arguments to search for user data files that contain a specific string in their names. The command to change to the correct directory is:
+
+`cd /home/analyst/reports/users`
+
+Using the ${\textsf{\color{green}pipe}}$ character (${\textsf{\color{green}|}}$), the output of the ${\textsf{\color{green}ls}}$ command is sent to the ${\textsf{\color{green}grep}}$ command to list only the files containing the string *access* in their names. The command to complete this step is:
+
+`ls | grep access`
+
+> [!NOTE]
+> The ${\textsf{\color{green}pipe}}$ character (${\textsf{\color{green}|}}$) is used to send the standard output of one command as the standard input to another command for further processing. In the example, the output of the ${\textsf{\color{green}ls}}$ command is ${\textsf{\color{green}piped}}$ to the ${\textsf{\color{green}grep}}$ command, and the result is displayed in the shell.
+
+> [!TIP]
+> ${\textsf{\color{green}Piping}}$ is a general form of redirection in Linux and can be used for various tasks where the output of one command becomes the input for another command.
+
+### Task 3 - Search for specific criteria
+
+The ${\textsf{\color{green}find}}$ command searches for directories and files that meet specified criteria. There is a wide range of criteria that can be specified with ${\textsf{\color{green}find}}$. For example, it can search for files and directories that:
+- Contain a specific string in the name,
+- Are of a certain file size, or
+- Were last modified within a certain time frame.
+
+When using ${\textsf{\color{green}find}}$, the first argument after ${\textsf{\color{green}find}}$ indicates where to start searching. For example, entering ${\textsf{\color{green}find /home/analyst/projects}}$ searches for everything starting at the *projects* directory.
+
+After this first argument, indicate the criteria for the search. Specifying criteria involves options. Options modify the behavior of a command and commonly begin with a hyphen (-).
+
+If searching for file or directory names that contain a specific string, this must be entered in quotes after the *-name* or *-iname* options. The difference between these two options is that *-name* is case-sensitive, while *-iname* is not. 
+
+For example, to ${\textsf{\color{green}find}}$ all files in the *projects* directory that contain the word *log* in the file name use:
+
+`find /home/analyst/projects -name "*log*"`
+
+The output will be all files in the *projects* directory that contain *log* surrounded by zero or more characters. The *log* portion of the command is the search criteria that indicates to search for the string *log*. When using the option *-name*, files with names that include *Log* or *LOG* wouldn not be returned because this option is case-sensitive. However, they would be returned when using the option *-iname*.
+
+> [!NOTE]
+> An asterisk (*) can be used as a wildcard to represent zero or more unknown characters.
+
+The *-mtime* option can be used to find files or directories last modified within a certain time frame, such as:
+
+`find /home/analyst/projects -mtime -3`
+
+In this example the ${\textsf{\color{green}find}}$ command returns all files and directories in the *projects* directory that have been modified within the past three days. The *-mtime* option searches based on days, so entering *-mtime +1* indicates all files or directories last modified more than one day ago, and entering *-mtime -1* indicates all files or directories last modified less than one day ago.
+
+> [!NOTE]
+> The option *-mmin* can be used instead of *-mtime* if the search is to be based on minutes rather than days.
