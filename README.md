@@ -17,8 +17,6 @@ This project demonstrates how to use the Linux command line interface (CLI) for 
 ### Tools Used
 
 - Linux command line interface (CLI)
-- Suricata
-- tcpdump
 
 ## Scenario 01
 
@@ -351,3 +349,34 @@ In this example the ${\textsf{\color{green}find}}$ command returns all files and
 
 > [!NOTE]
 > The option *-mmin* can be used instead of *-mtime* if the search is to be based on minutes rather than days.
+
+## Scenario 05
+
+In this activity, Linux commands are used to modify a directory structure and the files it contains, and to add text to a file using nano text editor.
+
+The */home/analyst* directory contains the following subdirectories and files:
+
+- home
+  - analyst
+    - notes
+      - Q3patches.txt
+      - tempnotes.txt
+    - reports
+      - Q1patches.txt
+      - Q2patches.txt
+    - temp
+
+A few changes are needed to the */home/analyst* directory to match the following subdirectories and file structure:
+
+- home
+  - analyst
+    - logs
+    - notes
+      - tasks.txt
+    - reports
+      - Q1patches.txt
+      - Q2patches.txt
+      - Q3patches.txt
+
+### Task 1 - Create a new directory
+
