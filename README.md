@@ -9,9 +9,10 @@ This project demonstrates how to use the Linux command line interface (CLI) for 
 - install and uninstall applications using the APT package manager
 - list installed applications
 - generate output using echo and expr
-- clear the Bash shell
 - navigate through directories and list their contents
 - display the contents of files
+- search for specific information contained in files
+- find files containing specific strings that were piped into grep
 
 ### Tools Used
 
