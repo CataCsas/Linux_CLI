@@ -380,3 +380,74 @@ A few changes are needed to the */home/analyst* directory to match the following
 
 ### Task 1 - Create a new directory
 
+The *logs* subdirectory needs to be created in the */home/analyst* directory. The ${\textsf{\color{green}mkdir}}$ command creates a new directory either by providing the absolute file path, which starts from the root, or the relative file path, which starts from the current directory. The command to complete this step:
+
+`mkdir logs` if already in the */home/analyst* directory\
+or\
+`mkdir /home/analyst/logs` from anywhere
+
+> [!TIP]
+> Using the ${\textsf{\color{green}ls}}$ command confirms the new directory was added.
+
+### Task 2 - Remove a directory
+
+The *temp* subdirectory needs to be removed from the final directory structure. The ${\textsf{\color{green}rmdir}}$ command removes, or deletes, a directory. The command to complete this step:
+
+`rmdir temp`
+
+> [!NOTE]
+> The ${\textsf{\color{green}rmdir}}$ command cannot delete directories with files or subdirectories inside.
+
+### Task 3 - Move a file
+
+The  *Q3patches.txt* file should be moved from the *notes* subdirectory to the *reports* subdirectory. Navigate to the *notes* subdirectory using ${\textsf{\color{green}cd notes}}$ and then complete the move by using the ${\textsf{\color{green}mv}}$ command.
+
+The commands ${\textsf{\color{green}mv}}$ and ${\textsf{\color{green}cp}}$ are used when working with files. The ${\textsf{\color{green}mv}}$ command moves a file or directory to a new location, and the ${\textsf{\color{green}cp}}$ command makes a duplicate of a file or directory into a new location. The first argument after ${\textsf{\color{green}mv}}$ or ${\textsf{\color{green}cp}}$ is the file or directory you want to move or copy, and the second argument is the location you want to move or copy it to. Moving a file removes the file from its original location. However, copying a file doesn’t remove it from its original location. The command to complete this step:
+
+`mv Q3patches.txt /home/analyst/reports/`
+
+> [!NOTE]
+> The ${\textsf{\color{green}mv}}$ command can also be used to rename files. To rename a file, pass the new name in as the second argument instead of the new location. For example, entering ${\textsf{\color{green}mv permissions.txt perm.txt}}$ renames the *permissions.txt* file to *perm.txt*.
+
+### Task 4 - Remove a file
+
+The file *tempnotes.txt* needs to be deleted from the */home/analyst/notes* directory. The ${\textsf{\color{green}rm}}$ command removes, or deletes, a file. This command should be used carefully because it’s not easy to recover files deleted with ${\textsf{\color{green}rm}}$. The command to complete this step:
+
+`rm tempnotes.txt`
+
+### Task 5 - Create a new file
+
+Create a file named *tasks.txt* in the */home/analyst/notes* directory. The ${\textsf{\color{green}touch}}$ command creates a new file. This file won’t have any content inside. The command to complete this step:
+
+`touch tasks.txt`
+
+### Task 6 - Edit a file
+
+Finally, you must use the nano text editor to edit the tasks.txt file and add a note describing the tasks you’ve completed.
+    1. Using the nano text editor, open the tasks.txt file that is located in the /home/analyst/notes directory.
+The command to complete this step:
+nano tasks.txt Note: This action changes the shell from the normal Bash interface to the nano text editor interface.
+    2. Copy and paste the following text into the text input area of the nano editor:
+Completed tasks 1. Managed file structure in /home/analyst
+    3. Press CTRL+X to exit the nano text editor.
+This triggers a prompt asking Save modified bufferer?
+    4. Press Y to confirm that you want to save the new data to your file. (Answering "no" will discard changes.)
+
+    5. Press ENTER to confirm that File Name to Write is tasks.txt.
+ Note: The recommended sequence of commands for saving a file with the nano text editor is to use CTRL+O to tell nano to save the file and then use CTRL+X to exit immediately.
+
+ In this web-based lab environment, the CTRL+O command is intercepted by your web browser and is interpreted as a request to save the web page. The sequence used here is a commonly used alternative that achieves the same end result.
+
+    6. Use the clear command to clear the Bash shell window and remove any traces of the nano text input area.
+
+The command to complete this step:
+clear Note: Most Bash shells typically handle the screen cleanup after you exit nano. In this lab environment, nano sometimes leaves some text clutter around the edges of the screen that the clear command cleans up for you.
+    7. Display the contents of the tasks.txt file to confirm that it contains the updated task details.
+cat tasks.txt
+This file should now contain the contents of the tasks.txt file that you added and saved in previous steps:
+
+nano is a command-line file editor that is available by default in many Linux distributions. Many beginners find it easy to use, and it’s widely used in the security profession. You can perform multiple basic tasks in nano, such as creating new files and modifying file contents. 
+To open an existing file in nano from the directory that contains it, enter nano followed by the file name. For example, entering nano permissions.txt from the /home/analyst/reports directory opens a new nano editing window with the permissions.txt file open for editing. You can also provide the absolute file path to the file if you’re not in the directory that contains it.
+You can also create a new file in nano by entering nano followed by a new file name. For example, entering nano authorized_users.txt from the /home/analyst/reports directory creates the authorized_users.txt file within that directory and opens it in a new nano editing window.
+Since there isn't an auto-saving feature in nano, it’s important to save your work before exiting. To save a file in nano, use the keyboard shortcut Ctrl + O. You’ll be prompted to confirm the file name before saving. To exit out of nano, use the keyboard shortcut Ctrl + X.
+Note: Vim and Emacs are also popular command-line text editors.
