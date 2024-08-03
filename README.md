@@ -355,7 +355,7 @@ In this example the ${\textsf{\color{green}find}}$ command returns all files and
 
 ## Scenario 05
 
-In this activity, Linux commands are used to modify a directory structure and the files it contains, and to add text to a file using nano text editor.
+In this activity, Linux commands are used to modify a directory structure and its contents, as well as to add text to a file using the ${\textsf{\color{green}nano}}$ text editor.
 
 The */home/analyst* directory contains the following subdirectories and files:
 
@@ -369,7 +369,7 @@ The */home/analyst* directory contains the following subdirectories and files:
       - Q2patches.txt
     - temp
 
-A few changes are needed to the */home/analyst* directory to match the following subdirectories and file structure:
+Several changes are required for the */home/analyst* directory to match the following subdirectories and file structure:
 
 - home
   - analyst
@@ -383,78 +383,84 @@ A few changes are needed to the */home/analyst* directory to match the following
 
 ### Task 1 - Create a new directory
 
-The *logs* subdirectory needs to be created in the */home/analyst* directory. The ${\textsf{\color{green}mkdir}}$ command creates a new directory either by providing the absolute file path, which starts from the root, or the relative file path, which starts from the current directory. The command to complete this step:
+The *logs* subdirectory needs to be created within the */home/analyst* directory. The ${\textsf{\color{green}mkdir}}$ command creates a new directory by providing either an absolute file path, which starts from the root, or a relative file path, which starts from the current directory. The command to complete this step is:
 
 `mkdir logs` if already in the */home/analyst* directory\
 or\
-`mkdir /home/analyst/logs` from anywhere
+`mkdir /home/analyst/logs` from any location
 
 > [!TIP]
-> Using the ${\textsf{\color{green}ls}}$ command confirms the new directory was added.
+> Using the ${\textsf{\color{green}ls}}$ command confirms that the new directory has been added.
 
 ### Task 2 - Remove a directory
 
-The *temp* subdirectory needs to be removed from the final directory structure. The ${\textsf{\color{green}rmdir}}$ command removes, or deletes, a directory. The command to complete this step:
+The *temp* subdirectory needs to be removed from the final directory structure. The ${\textsf{\color{green}rmdir}}$ command removes or deletes a directory. The command to complete this step is:
 
 `rmdir temp`
 
 > [!NOTE]
-> The ${\textsf{\color{green}rmdir}}$ command cannot delete directories with files or subdirectories inside.
+> The ${\textsf{\color{green}rmdir}}$ command cannot delete directories that contain files or subdirectories.
 
 ### Task 3 - Move a file
 
-The  *Q3patches.txt* file should be moved from the *notes* subdirectory to the *reports* subdirectory. Navigate to the *notes* subdirectory using ${\textsf{\color{green}cd notes}}$ and then complete the move by using the ${\textsf{\color{green}mv}}$ command.
+The  *Q3patches.txt* file should be moved from the *notes* subdirectory to the *reports* subdirectory. Navigate to the *notes* subdirectory using ${\textsf{\color{green}cd notes}}$ and then complete the move using the ${\textsf{\color{green}mv}}$ command.
 
-The commands ${\textsf{\color{green}mv}}$ and ${\textsf{\color{green}cp}}$ are used when working with files. The ${\textsf{\color{green}mv}}$ command moves a file or directory to a new location, and the ${\textsf{\color{green}cp}}$ command makes a duplicate of a file or directory into a new location. The first argument after ${\textsf{\color{green}mv}}$ or ${\textsf{\color{green}cp}}$ is the file or directory you want to move or copy, and the second argument is the location you want to move or copy it to. Moving a file removes the file from its original location. However, copying a file doesn’t remove it from its original location. The command to complete this step:
+The ${\textsf{\color{green}mv}}$ and ${\textsf{\color{green}cp}}$ commands are used when working with files. The ${\textsf{\color{green}mv}}$ command moves a file or directory to a new location, while the ${\textsf{\color{green}cp}}$ command creates a duplicate of a file or directory in a new location. The first argument after ${\textsf{\color{green}mv}}$ or ${\textsf{\color{green}cp}}$ is the file or directory to move or copy, and the second argument is the destination location. Moving a file removes it from the original location, while copying it does not. The command to complete this step is:
 
 `mv Q3patches.txt /home/analyst/reports/`
 
 > [!TIP]
-> The ${\textsf{\color{green}mv}}$ command can also be used to rename files. To rename a file, pass the new name in as the second argument instead of the new location. For example, entering ${\textsf{\color{green}mv permissions.txt perm.txt}}$ renames the *permissions.txt* file to *perm.txt*.
+> The ${\textsf{\color{green}mv}}$ command can also be used to rename files. To rename a file, specify the new name as the second argument instead of a new location. For example, entering ${\textsf{\color{green}mv permissions.txt perm.txt}}$ renames *permissions.txt* to *perm.txt*.
 
 ### Task 4 - Remove a file
 
-The file *tempnotes.txt* needs to be deleted from the */home/analyst/notes* directory. The ${\textsf{\color{green}rm}}$ command removes, or deletes, a file. This command should be used carefully because it’s not easy to recover files deleted with ${\textsf{\color{green}rm}}$. The command to complete this step:
+The *tempnotes.txt* file needs to be deleted from the */home/analyst/notes* directory. The ${\textsf{\color{green}rm}}$ command removes or deletes a file. This command should be used carefully, as recovering deleted files is difficult. The command to complete this step is:
 
 `rm tempnotes.txt`
 
 ### Task 5 - Create a new file
 
-Create a file named *tasks.txt* in the */home/analyst/notes* directory. The ${\textsf{\color{green}touch}}$ command creates a new file. This file won’t have any content inside. The command to complete this step:
+Create a file named *tasks.txt* in the */home/analyst/notes* directory. The ${\textsf{\color{green}touch}}$ command creates a new file. This file will initially be empty. The command to complete this step is:
 
 `touch tasks.txt`
 
 ### Task 6 - Edit a file
 
-The ${\textsf{\color{green}nano}}$ text editor is used to edit the *tasks.txt* file describing the tasks completed. ${\textsf{\color{green}nano}}$ is a command-line file editor that is available by default in many Linux distributions. ${\textsf{\color{green}nano}}$ can perform multiple basic tasks such as creating new files and modifying file contents. To create a new file enter ${\textsf{\color{green}nano}}$ followed by a new file name. For example, entering ${\textsf{\color{green}nano authorized_users.txt}}$ from the */home/analyst/reports* directory creates the *authorized_users.txt* file within that directory and opens it in a new nano editing window.
+The ${\textsf{\color{green}nano}}$ text editor is used to edit the *tasks.txt* file to describe the tasks completed. ${\textsf{\color{green}nano}}$ is a command-line file editor available by default on many Linux distributions. It can perform basic tasks such as creating and modifying files. To create a new file, enter ${\textsf{\color{green}nano}}$ followed by the new file name. For example, entering ${\textsf{\color{green}nano authorized-users.txt}}$ from the */home/analyst/reports* directory creates the *authorized-users.txt* file within that directory and opens it in a new ${\textsf{\color{green}nano}}$ editing window.
 
-To open an existing file in ${\textsf{\color{green}nano}}$ from the directory that contains it, enter ${\textsf{\color{green}nano}}$ followed by the file name. ${\textsf{\color{green}nano}}$ command can take the absolute file path to the file if not in the directory that contains it. The command to complete this step:
+To open an existing file in ${\textsf{\color{green}nano}}$, from the directory containing it, enter ${\textsf{\color{green}nano}}$ followed by the file name. The ${\textsf{\color{green}nano}}$ command can also take an absolute file path if executed in a directory different than the directory containing the file. The command to complete this step is:
 
 `nano tasks.txt`
 
 > [!NOTE]
-> This action changes the shell from the normal Bash interface to the ${\textsf{\color{green}nano}}$ text editor interface.
+> This action changes the shell from the standard Bash interface to the ${\textsf{\color{green}nano}}$ text editor interface.
 
 Insert the following text in the ${\textsf{\color{green}nano}}$ interface:
 
 `Completed tasks:`
 `1. Managed file structure in /home/analyst`
 
-Since there isn't an auto-saving feature in ${\textsf{\color{green}nano}}$, it’s important to save before exiting. The keyboard shortcut **Ctrl + O** saves a file in ${\textsf{\color{green}nano}}$. Confirm the file name before saving. The keyboard shortcut **Ctrl + X** is used to exit out of ${\textsf{\color{green}nano}}$. This triggers a prompt asking *Save modified bufferer?*. **Y** confirms saving the new data to the file (answering **"no"** will discard changes).
+Since ${\textsf{\color{green}nano}}$ does not have an auto-saving feature, it is important to save before exiting. The keyboard shortcut **Ctrl + O** saves the file. Confirm the file name before saving. The keyboard shortcut **Ctrl + X** exits ${\textsf{\color{green}nano}}$, prompting for confirmation to save changes. Answering **Y** confirms saving the new data to the file, while answering **N** will discard changes.
 
 > [!TIP]
 > ${\textsf{\color{green}vim}}$ and ${\textsf{\color{green}emacs}}$ are also popular command-line text editors.
 
-There’s an additional way to write to files similar to ${\textsf{\color{green}piping}}$ by using the right angle bracket (${\textsf{\color{green}>}}$) and double right angle bracket (${\textsf{\color{green}>>}}$) operators to redirect standard output.
-
-When used with ${\textsf{\color{green}echo}}$, the ${\textsf{\color{green}>}}$ and ${\textsf{\color{green}>>}}$ operators can be used to send the output of ${\textsf{\color{green}echo}}$ to a specified file rather than the screen. The difference between the two is that ${\textsf{\color{green}>}}$ overwrites the existing file, and ${\textsf{\color{green}>>}}$ adds the content to the end of the existing file instead of overwriting it.
+An alternative way to write to files involves using the right angle bracket (${\textsf{\color{green}>}}$) and double right angle bracket (${\textsf{\color{green}>>}}$) operators to redirect standard output. When used with the ${\textsf{\color{green}echo}}$ command, these operators can redirect output to a specified file. The ${\textsf{\color{green}>}}$ operator overwrites the existing file, while the ${\textsf{\color{green}>>}}$ operator adds content to the end of the existing file.
 
 > [!NOTE]
-> The ${\textsf{\color{green}>}}$ operator should be used carefully, because it is difficult to recover overwritten files.
+> The ${\textsf{\color{green}>}}$ operator should be used with caution, as overwriting files makes recovery difficult.
 
-For example, when inside the directory containing the *permissions.txt* file, to add the string *last updated date* to the file contents use:
+For example, when inside the directory containing the *permissions.txt* file, to add the string *last updated date* to the file, use:
 
 `echo "last updated date" >> permissions.txt`
 
 > [!TIP]
-> Both the ${\textsf{\color{green}>}}$ and ${\textsf{\color{green}>>}}$ operators will create a new file if one doesn’t already exist with the specified name.
+> Both the ${\textsf{\color{green}>}}$ and ${\textsf{\color{green}>>}}$ operators will create a new file if one does not already exist with the specified name.
+
+## Scenario 06
+
+In this activity, Linux commands are used to modify a directory structure and the files it contains, and to add text to a file using nano text editor.
+
+### Task 1 - Create a new directory
+
+The *logs* subdirectory needs to be created in the */home/analyst* directory. The ${\textsf{\color{green}mkdir}}$ command creates a new directory either by providing the absolute file path, which starts from the root, or the relative file path, which starts from the current directory. The command to complete this step:
