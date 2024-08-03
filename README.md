@@ -8,11 +8,14 @@ This project demonstrates how to use the Linux command line interface (CLI) for 
 
 - install and uninstall applications using the APT package manager
 - list installed applications
-- generate output using echo and expr
+- generate output using ${\textsf{\color{green}echo}}$ and ${\textsf{\color{green}expr}}$
 - navigate through directories and list their contents
 - display the contents of files
 - search for specific information contained in files
-- find files containing specific strings that were piped into grep
+- find files containing specific strings that were piped into ${\textsf{\color{green}grep}}$
+- create and remove directories
+- copy, move, and remove files
+- edit files with the nano text editor
 
 ### Tools Used
 
@@ -406,7 +409,7 @@ The commands ${\textsf{\color{green}mv}}$ and ${\textsf{\color{green}cp}}$ are u
 
 `mv Q3patches.txt /home/analyst/reports/`
 
-> [!NOTE]
+> [!TIP]
 > The ${\textsf{\color{green}mv}}$ command can also be used to rename files. To rename a file, pass the new name in as the second argument instead of the new location. For example, entering ${\textsf{\color{green}mv permissions.txt perm.txt}}$ renames the *permissions.txt* file to *perm.txt*.
 
 ### Task 4 - Remove a file
@@ -423,31 +426,35 @@ Create a file named *tasks.txt* in the */home/analyst/notes* directory. The ${\t
 
 ### Task 6 - Edit a file
 
-Finally, you must use the nano text editor to edit the tasks.txt file and add a note describing the tasks you’ve completed.
-    1. Using the nano text editor, open the tasks.txt file that is located in the /home/analyst/notes directory.
-The command to complete this step:
-nano tasks.txt Note: This action changes the shell from the normal Bash interface to the nano text editor interface.
-    2. Copy and paste the following text into the text input area of the nano editor:
-Completed tasks 1. Managed file structure in /home/analyst
-    3. Press CTRL+X to exit the nano text editor.
-This triggers a prompt asking Save modified bufferer?
-    4. Press Y to confirm that you want to save the new data to your file. (Answering "no" will discard changes.)
+The ${\textsf{\color{green}nano}}$ text editor is used to edit the *tasks.txt* file describing the tasks completed. ${\textsf{\color{green}nano}}$ is a command-line file editor that is available by default in many Linux distributions. ${\textsf{\color{green}nano}}$ can perform multiple basic tasks such as creating new files and modifying file contents. To create a new file enter ${\textsf{\color{green}nano}}$ followed by a new file name. For example, entering ${\textsf{\color{green}nano authorized_users.txt}}$ from the */home/analyst/reports* directory creates the *authorized_users.txt* file within that directory and opens it in a new nano editing window.
 
-    5. Press ENTER to confirm that File Name to Write is tasks.txt.
- Note: The recommended sequence of commands for saving a file with the nano text editor is to use CTRL+O to tell nano to save the file and then use CTRL+X to exit immediately.
+To open an existing file in ${\textsf{\color{green}nano}}$ from the directory that contains it, enter ${\textsf{\color{green}nano}}$ followed by the file name. ${\textsf{\color{green}nano}}$ command can take the absolute file path to the file if not in the directory that contains it. The command to complete this step:
 
- In this web-based lab environment, the CTRL+O command is intercepted by your web browser and is interpreted as a request to save the web page. The sequence used here is a commonly used alternative that achieves the same end result.
+`nano tasks.txt`
 
-    6. Use the clear command to clear the Bash shell window and remove any traces of the nano text input area.
+> [!NOTE]
+> This action changes the shell from the normal Bash interface to the ${\textsf{\color{green}nano}}$ text editor interface.
 
-The command to complete this step:
-clear Note: Most Bash shells typically handle the screen cleanup after you exit nano. In this lab environment, nano sometimes leaves some text clutter around the edges of the screen that the clear command cleans up for you.
-    7. Display the contents of the tasks.txt file to confirm that it contains the updated task details.
-cat tasks.txt
-This file should now contain the contents of the tasks.txt file that you added and saved in previous steps:
+Insert the following text in the ${\textsf{\color{green}nano}}$ interface:
 
-nano is a command-line file editor that is available by default in many Linux distributions. Many beginners find it easy to use, and it’s widely used in the security profession. You can perform multiple basic tasks in nano, such as creating new files and modifying file contents. 
-To open an existing file in nano from the directory that contains it, enter nano followed by the file name. For example, entering nano permissions.txt from the /home/analyst/reports directory opens a new nano editing window with the permissions.txt file open for editing. You can also provide the absolute file path to the file if you’re not in the directory that contains it.
-You can also create a new file in nano by entering nano followed by a new file name. For example, entering nano authorized_users.txt from the /home/analyst/reports directory creates the authorized_users.txt file within that directory and opens it in a new nano editing window.
-Since there isn't an auto-saving feature in nano, it’s important to save your work before exiting. To save a file in nano, use the keyboard shortcut Ctrl + O. You’ll be prompted to confirm the file name before saving. To exit out of nano, use the keyboard shortcut Ctrl + X.
-Note: Vim and Emacs are also popular command-line text editors.
+`Completed tasks:`
+`1. Managed file structure in /home/analyst`
+
+Since there isn't an auto-saving feature in ${\textsf{\color{green}nano}}$, it’s important to save before exiting. The keyboard shortcut **Ctrl + O** saves a file in ${\textsf{\color{green}nano}}$. Confirm the file name before saving. The keyboard shortcut **Ctrl + X** is used to exit out of ${\textsf{\color{green}nano}}$. This triggers a prompt asking *Save modified bufferer?*. **Y** confirms saving the new data to the file (answering **"no"** will discard changes).
+
+> [!TIP]
+> ${\textsf{\color{green}vim}}$ and ${\textsf{\color{green}emacs}}$ are also popular command-line text editors.
+
+There’s an additional way to write to files similar to ${\textsf{\color{green}piping}}$ by using the right angle bracket (${\textsf{\color{green}>}}$) and double right angle bracket (${\textsf{\color{green}>>}}$) operators to redirect standard output.
+
+When used with ${\textsf{\color{green}echo}}$, the ${\textsf{\color{green}>}}$ and ${\textsf{\color{green}>>}}$ operators can be used to send the output of ${\textsf{\color{green}echo}}$ to a specified file rather than the screen. The difference between the two is that ${\textsf{\color{green}>}}$ overwrites the existing file, and ${\textsf{\color{green}>>}}$ adds the content to the end of the existing file instead of overwriting it.
+
+> [!NOTE]
+> The ${\textsf{\color{green}>}}$ operator should be used carefully, because it is difficult to recover overwritten files.
+
+For example, when inside the directory containing the *permissions.txt* file, to add the string *last updated date* to the file contents use:
+
+`echo "last updated date" >> permissions.txt`
+
+> [!TIP]
+> Both the ${\textsf{\color{green}>}}$ and ${\textsf{\color{green}>>}}$ operators will create a new file if one doesn’t already exist with the specified name.
