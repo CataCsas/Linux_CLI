@@ -437,7 +437,7 @@ To open an existing file in ${\textsf{\color{green}nano}}$, from the directory c
 
 Insert the following text in the ${\textsf{\color{green}nano}}$ interface:
 
-`Completed tasks:`
+`Completed tasks:`\
 `1. Managed file structure in /home/analyst`
 
 Since ${\textsf{\color{green}nano}}$ does not have an auto-saving feature, it is important to save before exiting. The keyboard shortcut **Ctrl + O** saves the file. Confirm the file name before saving. The keyboard shortcut **Ctrl + X** exits ${\textsf{\color{green}nano}}$, prompting for confirmation to save changes. Answering **Y** confirms saving the new data to the file, while answering **N** will discard changes.
