@@ -28,13 +28,13 @@ This project demonstrates **Linux command line skills specifically for SOC (Secu
 - [Key Features](#key-features)
 - [Skills Learned](#skills-learned)
 - [Tools Used](#tools-used)
-- [Scenario 01: Installing and Managing Network Security Tools](#scenario-01-installing-and-managing-network-security-tools)
-- [Scenario 02: Output and Calculations](#scenario-02-output-and-calculations)
-- [Scenario 03: Navigating the File System](#scenario-03-navigating-the-file-system)
-- [Scenario 04: Searching and Filtering Files](#scenario-04-searching-and-filtering-files)
-- [Scenario 05: Modifying Files and Directories](#scenario-05-modifying-files-and-directories)
-- [Scenario 06: Advanced Directory & File Management](#scenario-06-advanced-directory--file-management)
-- [License](#license) 
+- [Scenario 01](#scenario-01-installing-and-managing-network-security-tools)
+- [Scenario 02](#scenario-02-output-and-calculations)
+- [Scenario 03](#scenario-03-navigating-the-file-system)
+- [Scenario 04](#scenario-04-searching-and-filtering-files)
+- [Scenario 05](#scenario-05-modifying-files-and-directories)
+- [Scenario 06](#scenario-06-advanced-directory--file-management)
+- [License](#license)
 
 ---
 
