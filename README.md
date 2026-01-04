@@ -4,10 +4,15 @@
 ![Platform: Linux](https://img.shields.io/badge/Platform-Linux-green.svg)
 ![SOC Focus](https://img.shields.io/badge/SOC-Analyst-orange.svg)
 
+![Linux](https://img.shields.io/badge/Linux-CLI-blue?style=for-the-badge)
+![Skills](https://img.shields.io/badge/Skills-Log_Analysis-orange?style=for-the-badge)
+![Security+](https://img.shields.io/badge/CompTIA_Security+-red?style=for-the-badge)
+
 ## Table of Contents
 
 - [Objective](#objective)
 - [Key Features](#key-features)
+- [Tools Used](#tools-used)
 - [Scenario 01](#scenario-01) *Install and manage Suricata and tcpdump for network monitoring*
 - [Scenario 02](#scenario-02) *Learn echo, expr, and clear for command-line output and calculations*
 - [Scenario 03](#scenario-03) *Navigate Linux file structure, read files, and understand FHS*
@@ -26,13 +31,23 @@ This project demonstrates practical Linux CLI usage for SOC Analysts. Each scena
 
 ## Key Features
 
-- Install, uninstall, and manage applications using APT  
-- List installed packages and verify versions  
-- Perform calculations and handle output with `echo` and `expr`  
-- Navigate directories and manipulate files  
-- Read and analyze logs using `cat`, `head`, `tail`, `less`, `grep`  
-- Create, move, copy, remove, and edit files/directories  
-- Practice SOC-relevant scenarios with Suricata, tcpdump, and shell commands  
+- Package management (APT: `apt install`, `apt remove`, `apt list`)
+- Practice SOC-relevant scenarios with Suricata, tcpdump, and shell commands
+- Basic shell commands (`echo`, `expr`, `clear`)
+- Linux system navigation (`pwd`, `cd`, `ls`)
+- File and directory management (`mkdir`, `rm`, `mv`, `cp`, `touch`)
+- Viewing and searching files (`cat`, `head`, `tail`, `less`, `grep`, `find`)
+- Text editing (`nano`) and output redirection (`>`, `>>`)
+- Incident awareness and alert triage
+
+---
+
+## Tools Used
+
+- **Operating System:** Debian-based Linux
+- **Security & Monitoring:** Suricata IDS, tcpdump
+- **Command Line Utilities:** Bash shell, APT, grep, find, nano
+- **Other:** Wireshark (for optional packet inspection exercises)
 
 ---
 
@@ -51,8 +66,11 @@ apt
 sudo apt install suricata
 sudo apt remove suricata
 sudo apt install suricata
-suricata
+suricata -V
 ```
+
+> [!CAUTION]
+> Always verify commands before running with elevated privileges (sudo).
 
 ### Task 3 - Install tcpdump
 
@@ -110,7 +128,11 @@ clear
 pwd
 whoami
 ls
+ls /home/analyst/projects
 ```
+
+> [!TIP]
+> Use `man hier` to learn about the Filesystem Hierarchy Standard (FHS).
 
 ### Task 2 - Change directory
 
@@ -127,12 +149,12 @@ cat updates.txt
 head updates.txt
 head -n 5 updates.txt
 tail updates.txt
+tail -n 10 updates.txt
 less updates.txt
 ```
 
-> [!TIP]
-> Use `man hier` to learn about the Filesystem Hierarchy Standard (FHS).
-
+> [!NOTE]
+> Learn `man` <command> to explore advanced options and usage.
 ---
 
 ## Scenario 04
@@ -156,11 +178,13 @@ ls | grep access
 ### Task 3 - Search with criteria
 
 ```bash
-find /home/analyst/projects -name "*log*"
-find /home/analyst/projects -mtime -3
+find /home/analyst/projects -name "*log*"     # case-sensitive
+find /home/analyst/projects -iname "*log*"    # case-insensitive
+find /home/analyst/projects -mtime -3         # modified in last 3 days
+find /home/analyst/projects -mmin -60         # modified in last 60 minutes
 ```
 
-> [!TIP]
+> [!IMPORTANT]
 > `grep` and `find` reduce manual log inspection time for SOC operations.
 
 ---
@@ -172,32 +196,32 @@ find /home/analyst/projects -mtime -3
 ### Task 1 - Create a directory
 
 ```bash
-mkdir logs
+mkdir /home/analyst/logs
 ```
 
 ### Task 2 - Remove a directory
 
 ```bash
-rmdir temp
+rmdir /home/analyst/temp
 ```
 
 ### Task 3 - Move a file
 
 ```bash
-cd notes
+cd /home/analyst/notes
 mv Q3patches.txt /home/analyst/reports/
 ```
 
 ### Task 4 - Remove a file
 
 ```bash
-rm tempnotes.txt
+rm /home/analyst/notes/tempnotes.txt
 ```
 
 ### Task 5 - Create a new file
 
 ```bash
-touch tasks.txt
+touch /home/analyst/notes/tasks.txt
 ```
 
 ### Task 6 - Edit a file with nano
@@ -208,6 +232,12 @@ nano tasks.txt
 # Completed tasks:
 # 1. Managed file structure in /home/analyst
 # Save: Ctrl + O, Exit: Ctrl + X
+```
+
+Alternative redirection with echo:
+
+```bash
+echo "last updated date" >> /home/analyst/notes/tasks.txt
 ```
 
 > [!TIP]
@@ -226,6 +256,8 @@ mkdir ~/logs
 mkdir ~/notes
 mkdir ~/reports
 ```
+> [!WARNING]
+> Keeping consistent directory/file structure is critical for log correlation and SOC efficiency.
 
 ### Task 2 - Move and copy files
 
@@ -241,8 +273,11 @@ nano ~/notes/tasks.txt
 echo "last updated date" >> ~/notes/tasks.txt
 ```
 
-> [!TIP]
-> Keeping consistent directory/file structure is critical for log correlation and SOC efficiency.
+> [!NOTE]
+> Regularly monitor logs and practice alert triage to develop SOC awareness.
+
+> [!IMPORTANT]
+> Experiment with commands in a safe lab environment to build confidence.
 
 ---
 
