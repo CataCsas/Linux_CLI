@@ -178,7 +178,7 @@ clear
 ```
 
 > [!TIP]
-> Use `expr` with spaces around operators. `clear` helps declutter logs during analysis.
+> Always include spaces around operators for `expr`. `clear` declutters your workspace during log review.
 
 ---
 
@@ -222,6 +222,7 @@ less updates.txt
 
 > [!NOTE]
 > Learn `man` <command> to explore advanced options and usage.
+
 ---
 
 ## Scenario 04
@@ -308,7 +309,7 @@ echo "last updated date" >> /home/analyst/notes/tasks.txt
 ```
 
 > [!TIP]
-> `vim` and `emacs` are alternatives. Use `>` to overwrite files and `>>` to append.
+> Use `>` to overwrite and `>>` to append. Alternatives: `vim`, `emacs`.
 
 ---
 
