@@ -13,6 +13,7 @@
 - [Objective](#objective)
 - [Key Features](#key-features)
 - [Tools Used](#tools-used)
+- [Getting Started](#getting-started)
 - [Scenario 01](#scenario-01) *Install and manage Suricata and tcpdump for network monitoring*
 - [Scenario 02](#scenario-02) *Learn echo, expr, and clear for command-line output and calculations*
 - [Scenario 03](#scenario-03) *Navigate Linux file structure, read files, and understand FHS*
@@ -20,25 +21,35 @@
 - [Scenario 05](#scenario-05) *Manage directories and files, create and edit tasks with nano*
 - [Scenario 06](#scenario-06) *Extend directory/file operations and enhance workflow*
 - [License](#license)
+- [References](#references)
 
 ---
 
 ## Objective
 
-This project demonstrates practical Linux CLI usage for SOC Analysts. Each scenario covers tasks relevant to cybersecurity operations: package management, file system navigation, log analysis, and intrusion detection tool usage.
+Demonstrate Linux CLI usage for cybersecurity operations relevant to SOC analysts, including:
+
+- Package management (installing, uninstalling, verifying tools)  
+- File and directory navigation  
+- Searching, filtering, and parsing log data  
+- Editing and managing files  
+- Understanding shell input/output for automation and calculations  
+
+This repository is **SOC-focused**, emphasizing tools and commands used in threat detection, incident investigation, and security monitoring.
 
 ---
 
 ## Key Features
 
-- Package management (APT: `apt install`, `apt remove`, `apt list`)
+- Hands-on SOC lab exercises: network traffic monitoring, log analysis, file system navigation
 - Practice SOC-relevant scenarios with Suricata, tcpdump, and shell commands
+- Incident awareness and alert triage
+- Package management (APT: `apt install`, `apt remove`, `apt list`)
 - Basic shell commands (`echo`, `expr`, `clear`)
 - Linux system navigation (`pwd`, `cd`, `ls`)
 - File and directory management (`mkdir`, `rm`, `mv`, `cp`, `touch`)
 - Viewing and searching files (`cat`, `head`, `tail`, `less`, `grep`, `find`)
 - Text editing (`nano`) and output redirection (`>`, `>>`)
-- Incident awareness and alert triage
 
 ---
 
@@ -51,6 +62,26 @@ This project demonstrates practical Linux CLI usage for SOC Analysts. Each scena
 
 ---
 
+## Getting Started
+
+1. Open your Linux terminal (Bash shell).  
+2. Update package lists:
+
+```bash
+sudo apt update
+````
+
+3. Verify sudo privileges:
+
+```bash
+sudo -v
+```
+
+> [!WARNING]
+Always use a lab or VM environment for testing commands to avoid accidental system changes.
+
+---
+
 ## Scenario 01
 
 **SOC Focus:** Deploy and verify network monitoring tools for traffic capture and intrusion detection.
@@ -60,13 +91,35 @@ This project demonstrates practical Linux CLI usage for SOC Analysts. Each scena
 apt
 ````
 
-### Task 2 - Install and uninstall Suricata
+Expected output (example):
+```bash
+apt 2.9.5 (amd64)
+Usage: apt [options] command
+Most used commands:
+  list        - list packages
+  search      - search in package descriptions
+  install     - install packages
+  remove      - remove packages
+  update      - update package lists
+...
+````
+
+### Task 2 - Install, uninstall, and verify Suricata
 
 ```bash
 sudo apt install suricata
 sudo apt remove suricata
 sudo apt install suricata
 suricata -V
+```
+
+Example installation output:
+```bash
+Installing: suricata
+Installing dependencies:
+  libhtp2 librte-ethdev24 oinkmaster snort-rules-default ...
+Summary: Upgrading: 0, Installing: 29, Removing: 0
+Continue? [Y/n]
 ```
 
 > [!CAUTION]
@@ -78,10 +131,19 @@ suricata -V
 sudo apt install tcpdump
 ```
 
+> [!TIP]
+> Always run `apt update` before installing new software to ensure the latest versions.
+
 ### Task 4 - List installed applications
 
 ```bash
 apt list --installed | grep -E 'suricata|tcpdump'
+```
+
+Example output:
+```bash
+suricata/jammy,now 1:6.0.4-3 amd64 [installed]
+tcpdump/jammy-updates,now 4.99.1-3ubuntu0.2 amd64 [installed]
 ```
 
 > [!TIP]
@@ -106,6 +168,8 @@ echo "hello"
 expr 32 - 8
 expr 3500 \* 12
 ```
+> [!NOTE]
+> Operators must be separated by spaces.
 
 ### Task 3 - Clear shell
 
@@ -141,6 +205,9 @@ cd projects
 cd /home/analyst/logs
 cd ..
 ```
+
+> [!TIP]
+> Use absolute paths `/home/analyst/projects` or relative paths `../projects`.
 
 ### Task 3 - Read file contents
 
@@ -256,6 +323,11 @@ mkdir ~/logs
 mkdir ~/notes
 mkdir ~/reports
 ```
+
+## Filesystem Hierarchy Diagram
+
+![FHS Diagram](https://github.com/user-attachments/assets/d4efbf29-1791-4783-bc49-5341309bf0ca)
+
 > [!WARNING]
 > Keeping consistent directory/file structure is critical for log correlation and SOC efficiency.
 
@@ -284,3 +356,12 @@ echo "last updated date" >> ~/notes/tasks.txt
 ## License
 
 MIT License © 2026
+
+---
+
+## References
+
+* [Linux Documentation Project](https://www.tldp.org/)
+* [Suricata IDS Documentation](https://suricata.io/documentation/)
+* [tcpdump Manual](https://www.tcpdump.org/manpages/tcpdump.1.html)
+* [Filesystem Hierarchy Standard](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html)
